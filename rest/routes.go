@@ -16,7 +16,7 @@ type Endpoint struct {
 
 // Route is a collection of endpoints
 type Route struct {
-	Name        string
-	Entrypoints []Endpoint
-	InitFunc    func()
+	Name      string
+	Endpoints []Endpoint
+	InitFunc  func()
 }
