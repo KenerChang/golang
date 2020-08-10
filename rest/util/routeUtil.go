@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-// SetRoutes recives routes info and return a mux router
+// SetRoutes recives routes info and return a mux
 func SetRoutes(routes []rest.Route) *mux.Router {
 	apiRoutes := mux.NewRouter()
 	for _, route := range routes {
