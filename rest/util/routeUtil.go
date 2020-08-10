@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-func setRoutes(routes []rest.Route) *mux.Router {
+func SetRoutes(routes []rest.Route) *mux.Router {
 	apiRoutes := mux.NewRouter()
 	for _, route := range routes {
 		for _, endpoint := range route.Endpoints {
