@@ -8,11 +8,12 @@ import (
 	"net/http"
 )
 
+// SetRoutes recives routes info and return a mux router
 func SetRoutes(routes []rest.Route) *mux.Router {
 	apiRoutes := mux.NewRouter()
 	for _, route := range routes {
 		for _, endpoint := range route.Endpoints {
-			path := fmt.Sprintf("/api/v%d/%s", route.Name, endpoint.Version)
+			path := fmt.Sprintf("/api/v%d/%s", endpoint.Version, route.Name)
 			if endpoint.Path != "" {
 				path = path + "/" + endpoint.Path
 			}
