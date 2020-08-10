@@ -17,7 +17,7 @@ func setRoutes(routes []rest.Route) *mux.Router {
 				path = path + "/" + endpoint.Path
 			}
 
-			logger.Info.Printf(nil, "set path: %s", path)
+			logger.Info.Printf("set path: %s", path)
 
 			apiRoutes.
 				HandleFunc(path, func(w http.ResponseWriter, r *http.Request) {

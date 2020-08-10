@@ -67,11 +67,11 @@ func Init(
 		"[WARN] ",
 		log.Ldate|log.Ltime|log.Lshortfile)
 
-	Info := log.New(handler[logLevel["INFO"]],
+	Info = log.New(handler[logLevel["INFO"]],
 		"[INFO] ",
 		log.Ldate|log.Ltime|log.Lshortfile)
 
-	Trace := log.New(handler[logLevel["TRACE"]],
+	Trace = log.New(handler[logLevel["TRACE"]],
 		"[TRACE] ",
 		log.Ldate|log.Ltime|log.Lshortfile)
 }
