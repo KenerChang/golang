@@ -13,6 +13,7 @@ func SetRoutes(routes []rest.Route) *mux.Router {
 	apiRoutes := mux.NewRouter()
 	for _, route := range routes {
 		for _, endpoint := range route.Endpoints {
+			localEndpoint := endpoint
 			path := fmt.Sprintf("/api/v%d/%s", endpoint.Version, route.Name)
 			if endpoint.Path != "" {
 				path = path + "/" + endpoint.Path
@@ -26,11 +27,11 @@ func SetRoutes(routes []rest.Route) *mux.Router {
 						if err := recover(); err != nil {
 							errMsg := fmt.Sprintf("%#v", err)
 							WriteWithStatus(w, errMsg, http.StatusInternalServerError)
-							logger.Error.Println(r, "Panic error:", errMsg)
+							logger.Error.Println("Panic error:", errMsg)
 						}
 					}()
 
-					endpoint.Callback(w, r)
+					localEndpoint.Callback(w, r)
 				}).
 				Methods(endpoint.Method)
 		}
